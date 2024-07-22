@@ -1,7 +1,7 @@
 package grant
 
 import (
-    "github.com/bitrule/quark-api/user/source"
+    "github.com/aabstractt/quark-api/user/source"
     "time"
 )
 
