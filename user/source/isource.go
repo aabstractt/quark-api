@@ -10,7 +10,9 @@ type ISource interface {
 	Name() string
 
 	// FirstJoined returns the user's first joined time
+	// deprecated: this should be removed
 	FirstJoined() time.Time
 	// LastJoined returns the user's last joined time
+	// deprecated: this should be removed
 	LastJoined() time.Time
 }

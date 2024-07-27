@@ -19,12 +19,26 @@ type IUser interface {
 	// ActiveGrants returns the user's active grants
 	// usually, this is fetched everytime the user logs in
 	ActiveGrants() []grant.IGrant
+	// AddActiveGrant adds the grant to the user
+	AddActiveGrant(g grant.IGrant)
+	// RemoveActiveGrant removes the grant from the user
+	RemoveActiveGrant(grantId string) error
+
+	// AddExpiredGrant adds the grant to the user
+	AddExpiredGrant(g grant.IGrant)
 	// ExpiredGrants returns the user's expired grants
 	// usually, this is needed to fetch from the database
 	// and store here to avoid fetching it again
 	ExpiredGrants() []grant.IGrant
 	// Grants returns the user's grants
 	Grants() []grant.IGrant
+
+	// HasGroup returns true if the user has the given group
+	// and the group is not expired
+	HasGroup(groupId string) bool
+
+	// SetPermissions sets the user's permissions
+	SetPermissions(perms []string)
 
 	// HasPermission returns true if the user has the given permission
 	HasPermission(perm string) bool
